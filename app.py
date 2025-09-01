@@ -16,9 +16,9 @@ import dash_bootstrap_components as dbc
 # In[2]:
 
 
-df_heart_prev_mapped = pd.read_csv('https://raw.githubusercontent.com/healthbiodatascientist/heart_health/refs/heads/main/heart_prev_mapped.csv')
 def no_geometry():
     df_heart_prev_mapped = pd.read_csv('https://raw.githubusercontent.com/healthbiodatascientist/heart_health/refs/heads/main/heart_prev_mapped.csv')
+    df_heart_prev_mapped = df_heart_prev_mapped.set_index('HBCode')
     df_no_geometry = df_heart_prev_mapped.drop('geometry', axis=1)
     return df_no_geometry
 df_no_geometry = no_geometry()
