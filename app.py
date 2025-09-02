@@ -34,7 +34,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
     
 app.layout = dbc.Container([
     html.H1("Heart Disease Related Prevalence in Scotland's General Practices by Regional Health Board 2024/25", className='mb-2', style={'padding': '10px 10px', 'textAlign':'center'}),
-    dbc.Row([dbc.Col(html.Summary("The map below displays open source heart disease related data from Public Health Scotland (PHS) for each of the Scottish Health Board Regions. Click on or hover over over your Health Board for an insight into the factors affecting the efficiency of acute care:", className='mb-2', style={'padding': '10px 10px', 'list-style': 'none'}))]),
+    dbc.Row([dbc.Col(html.Summary("The map below displays open source heart disease related data from Public Health Scotland (PHS) for each of the Scottish Health Board Regions. Click on or hover over over your Health Board for an insight into the factors affecting heart disease prevalence in your area:", className='mb-2', style={'padding': '10px 10px', 'list-style': 'none'}))]),
     dbc.Row([dbc.Col(html.Iframe(id='my_output', height=600, width=1000, srcDoc=open('heartprevmap.html', 'r').read()))], style={'text-align':'center'}),
     html.Figcaption("Figure 1: Map of the latest heart-related disease open health data for the Scottish Health Board Regions", className='mb-2', style={'padding': '10px 10px', 'textAlign':'center'}),
     html.H4("Data Definitions", className='mb-2', style={'margin-top': '1em', 'padding': '10px 10px', 'textAlign': 'center'}),
