@@ -37,7 +37,7 @@ app.layout = dbc.Container([
     dbc.Row([dbc.Col(html.Summary("The map below displays open source heart disease related data from Public Health Scotland (PHS) for each of the Scottish Health Board Regions. Click on or hover over over your Health Board for an insight into the factors affecting heart disease prevalence in your area:", className='mb-2', style={'padding': '10px 10px', 'list-style': 'none'}))]),
     dbc.Row([dbc.Col(html.Iframe(id='my_output', height=600, width=1000, srcDoc=open('heartprevmap.html', 'r').read()))], style={'text-align':'center'}),
     html.Figcaption("Figure 1: Map of the latest heart-related disease open health data for the Scottish Health Board Regions", className='mb-2', style={'padding': '10px 10px', 'textAlign':'center'}),
-    html.H4("Data Definitions", className='mb-2', style={'margin-top': '1em', 'padding': '10px 10px', 'textAlign': 'center'}),
+    html.H4("Potential Data Relationships", className='mb-2', style={'margin-top': '1em', 'padding': '10px 10px', 'textAlign': 'center'}),
     html.Summary("Prevalence is how common a disease is in a population. If in a GP practice with 10,000 patients 1,000 meet the conditions for the cancer indicator, then this practice has a cancer prevalence of 10 per 100. In other words, prevalence rates represent how many people out of every 100 are recorded as having a particular disease.", className='mb-2'),
     html.Summary("Atrial fibrillation (AF) is an irregular and often rapid heart rhythm that can be a symptom or complication of underlying heart disease, increasing the risk of stroke, heart failure, and other serious conditions", className='mb-2'),
     html.Summary("Risk factors for coronary heart disease (CHD) include modifiable lifestyle choices like smoking, unhealthy diet, lack of physical activity, and excessive alcohol intake, as well as health conditions such as high blood pressure, high cholesterol, and diabetes", className='mb-2'),
@@ -46,6 +46,7 @@ app.layout = dbc.Container([
     html.Summary("Heart failure risk factors include high blood pressure, coronary artery disease (often caused by high cholesterol and smoking), diabetes, obesity, physical inactivity, excessive alcohol use, and certain existing conditions like cardiomyopathy, sleep apnea, chronic kidney disease, and atrial fibrillation", className='mb-2'),
     html.Summary("Hypertension, or high blood pressure, significantly increases the risk of heart disease by straining and damaging blood vessels and the heart muscle, leading to conditions like coronary artery disease, heart attacks, heart failure, and enlarged heart chambers", className='mb-2'),
     html.Summary("Peripheral arterial disease (PAD) and heart disease, particularly coronary heart disease, are closely related because both are caused by the same underlying condition, atherosclerosis (fatty plaque buildup in arteries)", className='mb-2'),
+    html.Summary("Coronary heart disease (CHD) risk significantly increases with age, becoming more prevalent after age 35 for both men and women, with men generally having a higher risk starting around age 45 and women's risk accelerating around age 55 after menopause", className='mb-2'),
     html.Figcaption("Table 1: Latest open heart disease related data for the Scottish Health Board Regions with the highest 50% of column values highlighted in dark pink", className='mb-2', style={'margin-bottom': '1em', 'padding': '10px 10px', 'textAlign':'center'}),
     dbc.Row([dbc.Col(dash_table.DataTable(
     data=df_no_geometry.to_dict('records'),
@@ -81,6 +82,8 @@ app.layout = dbc.Container([
     html.Summary("Public Health Scotland"),
     html.Li(html.Cite("https://publichealthscotland.scot/publications/general-practice-disease-prevalence-data-visualisation/general-practice-disease-prevalence-visualisation-8-july-2025/")),
     html.Li(html.Cite("https://publichealthscotland.scot/media/34174/diseaseprevalence_methodology_and_metadata_2025-for-publication.pdf")),
+    html.Summary("Scotland's Census 2022 - National Records of Scotland"),
+    html.Li(html.Cite("https://www.scotlandscensus.gov.uk/webapi/jsf/tableView/tableView.xhtml")),
     ])
 
 
