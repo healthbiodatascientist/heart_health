@@ -23,7 +23,7 @@ def no_geometry():
     df_heart_prev_mapped = df_heart_prev_mapped.set_index('HBCode')
     df_no_geometry = df_heart_prev_mapped.drop('geometry', axis=1)
     return df_no_geometry
-df_no_geometry = no_geometry()
+df_hb_beds_table = no_geometry()
 df_numeric_columns = df_no_geometry.select_dtypes('number')
 
 
