@@ -14,16 +14,15 @@ import plotly.express as px
 import dash_ag_grid as dag
 import dash_bootstrap_components as dbc
 
+dash.register_page(__name__)
 
 # Import data and create page layout
 
 # In[2]:
 
-
 df_disease_prev_heart = pd.read_csv('https://raw.githubusercontent.com/healthbiodatascientist/heart_health/refs/heads/main/heart_prev_timeseries.csv')
 df_disease_prev_heart = df_disease_prev_heart.drop(columns='Unnamed: 0')
 
-dash.register_page(__name__)
 
 layout = dbc.Container([
     html.H1("Prevalence of Heart Disease Related factors in Scottish Health Boards 2022-2025", className='mb-2', style={'textAlign':'center'}),
