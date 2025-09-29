@@ -57,7 +57,7 @@ layout = dbc.Container([
     html.Li(html.Cite("https://www.gov.scot/publications/scottish-surveys-core-questions-2022/"))
 ])
 
-@app.callback(
+@callback(
     Output('line-graph-plotly', 'figure'),
     Output('grid', 'defaultColDef'),
     Input('healthboard', 'value'),
