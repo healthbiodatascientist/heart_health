@@ -7,10 +7,11 @@
 
 
 import pandas as pd
+import dash
 from dash import Dash, html, dash_table
 import dash_bootstrap_components as dbc
 
-Dash.register_page(__name__)
+dash.register_page(__name__)
 
 # Import data and create tables
 
