@@ -23,7 +23,7 @@ def no_geometry():
     df_heart_prev_mapped = df_heart_prev_mapped.set_index('HBCode')
     df_no_geometry = df_heart_prev_mapped.drop('geometry', axis=1)
     return df_no_geometry
-df_hb_beds_table = no_geometry()
+df_no_geometry = no_geometry()
 df_numeric_columns = df_no_geometry.select_dtypes('number')
 
 
@@ -50,9 +50,9 @@ layout = dbc.Container([
     html.Summary("Coronary heart disease (CHD) risk significantly increases with age, becoming more prevalent after age 35 for both men and women, with men generally having a higher risk starting around age 45 and women's risk accelerating around age 55 after menopause", className='mb-2'),
     html.Figcaption("Table 1: Latest open heart disease related data for the Scottish Health Board Regions with the highest 50% of column values highlighted in dark pink", className='mb-2', style={'margin-bottom': '1em', 'padding': '10px 10px', 'textAlign':'center'}),
     dbc.Row([dbc.Col(dash_table.DataTable(
-    data=df_hb_beds_table.to_dict('records'),
+    data=df_no_geometry.to_dict('records'),
     sort_action='native',
-    columns=[{'name': i, 'id': i} for i in df_hb_beds_table.columns],
+    columns=[{'name': i, 'id': i} for i in df_no_geometry.columns],
     style_cell={'textAlign': 'center'},
     fixed_columns={'headers': True, 'data': 1},
     style_table={'minWidth': '100%'},
