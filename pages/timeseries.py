@@ -14,7 +14,7 @@ import plotly.express as px
 import dash_ag_grid as dag
 import dash_bootstrap_components as dbc
 
-dash.register_page(__name__)
+dash.register_page(__name__, suppress_callback_exceptions=True)
 
 # Import data and create page layout
 
