@@ -61,7 +61,7 @@ layout = dbc.Container([
     Output('grid', 'defaultColDef'),
     Input('healthboard', 'value'),
     Input('category', 'value'),
-    
+    prevent_initial_call=True    
 )
 
 def plot_data(healthboard, selected_yaxis):
