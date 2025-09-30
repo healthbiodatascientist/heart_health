@@ -5,10 +5,10 @@ import dash_player as dp
 dash.register_page(__name__, path='/')
 
 layout = html.Div([
-    html.H1('Home page', style={'padding': '10px 10px', 'textAlign':'center'}),
-    html.Summary("View the interactive data map and timeseries heart disease related data by Scottish NHS board region:", style={'padding': '10px 10px', 'textAlign':'center'}),
+    html.H1('Home page', style={'padding': '10px 10px''}),
+    html.Summary("View the interactive data map and timeseries heart disease related data by Scottish NHS board region:", style={'padding': '10px 10px'}),
     html.Div(
-                    style={"width": "75%", "padding": "10px"},
+                    style={"width": "58%", "padding": "10px"},
                     children=[
                         dp.DashPlayer(
                             id="player",
