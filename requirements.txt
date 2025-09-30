@@ -1,6 +1,7 @@
 numpy
 pandas
 dash
+dash_player
 dash_bootstrap_components
 plotly
 dash_ag_grid
