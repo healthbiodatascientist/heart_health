@@ -8,14 +8,14 @@ layout = html.Div([
     html.H1('Home page', style={'padding': '10px 10px'}),
     html.Summary("View the interactive data map and timeseries heart disease related data by Scottish NHS board region:", style={'padding': '10px 10px'}),
     html.Div(
-                    style={"width": "58%", "padding": "10px"},
+                    style={"width": "65%", "padding": "10px"},
                     children=[
                         dp.DashPlayer(
                             id="player",
                             url="https://github.com/healthbiodatascientist/heart_health/raw/refs/heads/main/heart_prev_mapped_video.mp4",
                             controls=True,
                             width="100%",
-                            height="250px",
+                            height="500px",
                         )]
    )
 ])
