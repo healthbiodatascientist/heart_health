@@ -8,10 +8,11 @@
 
 import numpy as np
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output 
+from dash import dash, dcc, html, Input, Output 
 import plotly.express as px
 import dash_bootstrap_components as dbc
 
+dash.register_page(__name__)
 
 # Import data
 
@@ -21,13 +22,11 @@ import dash_bootstrap_components as dbc
 df_disease_prev_heart_time = pd.read_csv('heart_prev_timeseries.csv')
 
 
-# Create app layout
+# Create layout
 
 # In[3]:
 
-
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.layout = dbc.Container([
+layout = dbc.Container([
     html.H1("Prevalence of Heart Disease Related factors in Scottish Health Boards 2022-2025", className='mb-2', style={'textAlign':'center'}),
     html.Summary("The trendline and heat maps below display the correlations between the heart disease related factors found in the data from Public Health Scotland (PHS), National Records of Scotland and the Scottish Government on the prevalence of heart disease related factors from 2022-2025. Choose the heart disease related factors that you are interested in from the lists below:", className='mb-2', style={'textAlign':'center', 'list-style': 'none', 'margin-top': '1em', 'padding': '10px 10px'}),
     dbc.Row([dbc.Col([dcc.Dropdown(id='category1', value='Rate_Hypertension', clearable=False, options=df_disease_prev_heart_time.columns[3:15])]),
@@ -53,7 +52,7 @@ app.layout = dbc.Container([
     html.Li(html.Cite("https://www.gov.scot/publications/scottish-surveys-core-questions-2022/"))
 ]) 
 
-@app.callback(
+@callback(
     Output('heatmap-plotly-hb', 'figure'),
     Output('trendline-graph-plotly', 'figure'),
     Output('heatmap-plotly-time', 'figure'),
@@ -83,13 +82,3 @@ def plot_data(healthboard, selected_xaxis, selected_yaxis):
     fig_heatmap_time = fig_heatmap_time.update_traces(text=df_disease_prev_heart_time_heat.values, texttemplate="%{text}")
     
     return fig_heatmap_hb, fig_trendline_plotly, fig_heatmap_time
-
-
-# Run app
-
-# In[4]:
-
-
-if __name__ == '__main__':
-    app.run(port=8052)
-
